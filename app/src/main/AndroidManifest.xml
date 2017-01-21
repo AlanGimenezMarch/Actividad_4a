@@ -18,7 +18,9 @@
         <activity android:name=".EstudianteActivity" />
         <activity android:name=".ProfesorActivity" />
         <activity android:name=".BorrarEstudianteActivity" />
-        <activity android:name=".BorrarProfeActivity"></activity>
+        <activity android:name=".BorrarProfeActivity" />
+        <activity android:name=".BuscarActivity" />
+        <activity android:name=".ListadoActivity"></activity>
     </application>
 
 </manifest>

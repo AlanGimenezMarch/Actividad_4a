@@ -14,7 +14,7 @@
         android:text="Introducir Estudiante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="14dp"
         android:id="@+id/bt_nuevoEstudiante"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -23,7 +23,6 @@
         android:text="Introducir Profesor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:id="@+id/bt_nuevoProfe"
         android:layout_below="@+id/bt_nuevoEstudiante"
         android:layout_centerHorizontal="true" />
@@ -32,7 +31,6 @@
         android:text="Borrar Estudiante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:id="@+id/bt_borrarEstudiante"
         android:layout_below="@+id/bt_nuevoProfe"
         android:layout_centerHorizontal="true" />
@@ -41,7 +39,6 @@
         android:text="Borrar Profesor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
         android:id="@+id/bt_borrarProfe"
         android:layout_below="@+id/bt_borrarEstudiante"
         android:layout_centerHorizontal="true" />
@@ -50,8 +47,16 @@
         android:text="Borrar Base de Datos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
         android:id="@+id/bt_borrarBbdd"
         android:layout_below="@+id/bt_borrarProfe"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Buscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_borrarBbdd"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:id="@+id/bt_buscar" />
 </RelativeLayout>

@@ -9,7 +9,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     //declaramos las variables que van a interactuar
-    private Button btNuevoEstudiante, btNuevoProfe, btBorrarEstudiante, btBorrarProfe, btBorrarBbdd;
+    private Button btNuevoEstudiante, btNuevoProfe, btBorrarEstudiante, btBorrarProfe, btBorrarBbdd, btBuscar;
     private Adaptador adaptador;
 
     @Override
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         btBorrarEstudiante = (Button) this.findViewById(R.id.bt_borrarEstudiante);
         btBorrarProfe = (Button) this.findViewById(R.id.bt_borrarProfe);
         btBorrarBbdd = (Button) this.findViewById(R.id.bt_borrarBbdd);
+        btBuscar = (Button) this.findViewById(R.id.bt_buscar);
 
         btNuevoEstudiante.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -61,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 adaptador = new Adaptador(MainActivity.this);
                 adaptador.borrarBBDD(MainActivity.this);
+            }
+        });
+
+        btBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BuscarActivity.class);
+                startActivity(intent);
             }
         });
     }

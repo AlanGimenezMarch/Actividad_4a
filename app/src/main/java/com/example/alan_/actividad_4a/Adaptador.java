@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 /**
  * Created by alan_ on 03/01/2017.
@@ -136,5 +137,63 @@ public class Adaptador {
 
     public void borrarBBDD(Context context){
         context.deleteDatabase(DATABASE_NAME);
+    }
+
+    public ArrayList<UnElemento> recuperar(String nombreTabla, String var1, String var2, String[] args3){
+        ArrayList<UnElemento> registros = new ArrayList<UnElemento>();
+        String consulta = null;
+
+        if (var1!=null){
+            consulta = var1+"=?";
+            if (var2!=null){
+                consulta = var1 +" =? AND " + var2 +" =?";
+            }
+        }else if (var2!=null){
+            consulta = var2+"=?";
+        }
+
+        //Recuperamos en un cursor la consulta realizada
+        Cursor cursor = db.query(nombreTabla,null,consulta,args3,null,null,null);
+        //Recorremos el cursor
+        if (cursor != null && cursor.moveToFirst()){
+            do{
+                registros.add(new UnElemento(cursor.getString(0), cursor.getString(1)));
+            }while (cursor.moveToNext());
+        }
+
+        return registros;
+    }
+
+    public ArrayList<UnElemento> recuperar2Tablas(String var1, String var2, String[] args3){
+        ArrayList<UnElemento> registros = new ArrayList<UnElemento>();
+
+        String consulta = null;
+
+        if (var1!=null){
+            consulta = var1+"=?";
+            if (var2!=null){
+                consulta = var1 +" =? AND " + var2 +" =?";
+            }
+        }else if (var2!=null){
+            consulta = var2+"=?";
+        }
+
+        //Recuperamos en un cursor la consulta realizada
+        Cursor cursorE = db.query(DATABASE_TABLE_ESTUDIANTES,null,consulta,args3,null,null,null);
+        Cursor cursorP = db.query(DATABASE_TABLE_PROFESORES,null,consulta,args3,null,null,null);
+        //Recorremos el cursor
+        if (cursorE != null && cursorE.moveToFirst()){
+            do{
+                registros.add(new UnElemento(cursorE.getString(0), cursorE.getString(1)));
+            }while (cursorE.moveToNext());
+        }
+
+        if (cursorP != null && cursorP.moveToFirst()){
+            do{
+                registros.add(new UnElemento(cursorP.getString(0), cursorP.getString(1)));
+            }while (cursorP.moveToNext());
+        }
+
+        return registros;
     }
 }
